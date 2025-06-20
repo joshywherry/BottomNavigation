@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun Settingspage( ){
+fun Settingspage( modifier: Modifier){
     Column (modifier = Modifier.fillMaxSize()
         .background(Color(0xFF673AB7)),
         verticalArrangement = Arrangement.Center,

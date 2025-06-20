@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun NotificationPage( ){
+fun NotificationPage( modifier: Modifier){
     Column (modifier = Modifier.fillMaxSize()
         .background(Color(0xFFE91E63)),
         verticalArrangement = Arrangement.Center,

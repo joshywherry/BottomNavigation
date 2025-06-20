@@ -21,7 +21,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun InfoCard(
@@ -33,8 +35,8 @@ fun InfoCard(
 ) {
     Column ( modifier = Modifier.clip(RoundedCornerShape(8.dp))
         .background(color = Color(0xFF008080))
-        .padding(16.dp).height(200.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        .padding(16.dp).height(210.dp),
+        verticalArrangement = Arrangement.SpaceEvenly) {
         Row (
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -42,7 +44,7 @@ fun InfoCard(
 
         )
         {
-            Text(text = title, color = Color.White)
+            Text(text = title, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 30.sp)
             Surface (color = Color.Transparent, contentColor = Color(0xFF008080)) {
                 Row (modifier = Modifier
                     .clip(RoundedCornerShape(50))
