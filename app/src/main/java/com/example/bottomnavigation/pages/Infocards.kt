@@ -33,7 +33,7 @@ fun InfoCard(
     onClick: ()-> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column ( modifier = Modifier.clip(RoundedCornerShape(8.dp))
+    Column ( modifier = modifier.clip(RoundedCornerShape(8.dp))
         .background(color = Color(0xFF008080))
         .padding(16.dp).height(210.dp),
         verticalArrangement = Arrangement.SpaceEvenly) {

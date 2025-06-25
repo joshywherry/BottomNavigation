@@ -17,6 +17,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemColors
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -34,11 +36,12 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.bottomnavigation.pages.Homepage
 import com.example.bottomnavigation.pages.NotificationPage
 import com.example.bottomnavigation.pages.ProfilePage
-import com.example.bottomnavigation.pages.Settingspage
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,7 +49,6 @@ fun MainScreen(modifier: Modifier = Modifier){
     val navItemList = listOf(
         NavItem("Home", Icons.Default.Home),
         NavItem("Notifications", Icons.Default.Notifications),
-        NavItem("Settings", Icons.Default.Settings),
         NavItem("Profile", Icons.Default.Person)
     )
     var selectedIndex by remember {
@@ -73,6 +75,13 @@ fun MainScreen(modifier: Modifier = Modifier){
                         label ={
                             Text(text = navItem.label)
                         },
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = Color.White,
+                            unselectedIconColor = Color.Gray,
+                            selectedTextColor = Color.Black,
+                            unselectedTextColor = Color.Gray,
+                            indicatorColor = Color(0xFF008080)
+                        )
                     )
                 }
 
@@ -91,8 +100,7 @@ fun ContentScreen(modifier: Modifier= Modifier, selectedIndex: Int){
     when(selectedIndex){
         0-> Homepage(modifier)
         1-> NotificationPage(modifier)
-        2-> Settingspage(modifier)
-        3-> ProfilePage(modifier)
+        2-> ProfilePage(modifier)
     }
 
 }
@@ -104,7 +112,7 @@ fun Mainbar() {
 
     TopAppBar(
         title = {
-            Text("Fitness🏋️With💪Jay", fontSize = (25.sp))
+            Text("TrainWise 🏋️", fontSize = (25.sp), color = Color.Black, fontWeight = FontWeight.Bold)
         },
         navigationIcon = {
             IconButton(
@@ -116,29 +124,21 @@ fun Mainbar() {
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color.Transparent,
+            containerColor = Color.LightGray,
             titleContentColor = Color.Black,
             navigationIconContentColor = Color.White
         ),
         actions = {
-            IconButton(
-                onClick = {
-                    Toast.makeText(context, "Profile", Toast.LENGTH_SHORT).show()
-                }
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.Person,
-                    contentDescription = "Profile"
-                )
-            }
+
             IconButton(
             onClick = {
-                Toast.makeText(context, "Profile", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "SideBar", Toast.LENGTH_SHORT).show()
             }
         ) {
             Icon(
                 imageVector = Icons.Filled.MoreVert,
-                contentDescription = "Profile"
+                contentDescription = "SideBar",
+                tint = Color(0xFF008080)
             )
         }
         }
